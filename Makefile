@@ -9,10 +9,11 @@ ICON_DIR = icons
 OCI_ICON_REPO    := https://github.com/opencontainers/artwork.git
 OCI_REPO_DIR     := $(BUILD_DIR)/oci/artwork
 OCI_ICON_SRC_DIR := $(OCI_REPO_DIR)/icons
-PNG_ICONS_DIR    := $(BUILD_DIR)/$(ICON_DIR)
+ICONS_BUILD_DIR  := $(BUILD_DIR)/$(ICON_DIR)
+
 PUML_ICONS_DIR   := $(BUILD_DIR)/$(ICON_DIR)
 
-DIRS := $(BUILD_DIR) $(ICON_DIR) $(OCI_REPO_DIR) $(PNG_ICONS_DIR) $(PUML_ICONS_DIR)
+DIRS := $(BUILD_DIR) $(ICON_DIR) $(OCI_REPO_DIR) $(ICONS_BUILD_DIR)
 
 ENCODING_JAR = lib/plantuml/plantuml.jar
 ICON_GRAY_LEVEL = 16
@@ -41,33 +42,33 @@ endef
 
 # $(call FILE_LIST,suffix,prefix)
 SVG_ICONS   = $(call FILE_LIST,.svg,$(OCI_ICON_SRC_DIR)/)
-PNG_ICONS   = $(call FILE_LIST,.png,$(PNG_ICONS_DIR)/)
-PUML_ICONS  = $(call FILE_LIST,.puml,$(PUML_ICONS_DIR)/)
+PNG_ICONS   = $(call FILE_LIST,.png,$(ICONS_BUILD_DIR)/)
+PUML_ICONS  = $(call FILE_LIST,.puml,$(ICONS_BUILD_DIR)/)
 FINAL_ICONS = $(call FILE_LIST,.puml,$(ICON_DIR)/)
 
 
 $(OCI_ICON_SRC_DIR)/%.svg: | $(OCI_ICON_SRC_DIR)
 	cp $(subst oci_,oci_icon_,$@) $@
 
-$(PNG_ICONS_DIR)/%.png: $(OCI_ICON_SRC_DIR)/%.svg | $(PNG_ICONS_DIR)
+$(ICONS_BUILD_DIR)/%.png: $(OCI_ICON_SRC_DIR)/%.svg | $(ICONS_BUILD_DIR)
 	rsvg-convert -h $(PNG_ICON_HEIGHT) $< > $@
 
-$(PUML_ICONS_DIR)/%.puml: $(PNG_ICONS_DIR)/%.png | $(PUML_ICONS_DIR)
+$(ICONS_BUILD_DIR)/%.puml: $(ICONS_BUILD_DIR)/%.png | $(ICONS_BUILD_DIR)
 	java -jar $(ENCODING_JAR) -encodesprite $(ICON_GRAY_LEVEL)$(ICON_COMPRESS) $< > $@
 
-$(ICON_DIR)/%.puml: $(PUML_ICONS_DIR)/%.puml | $(ICON_DIR)
+$(ICON_DIR)/%.puml: $(ICONS_BUILD_DIR)/%.puml | $(ICON_DIR)
 	cp $< $@
 
 
 .PHONY: build clean
 
+$(ICON_DIR)/INFO: | $(ICON_DIR)
+	echo "BuildTime=$(shell date +'%Y-%m-%dT%H:%M:%S')" > $@
+	echo "VERSION=d8ccfe94471a0236b1d4a3f0f90862c4fe5486ce" >> $@
+	echo "SOURCE=$(subst .git,,$(OCI_ICON_REPO))" >> $@
 
-build: $(FINAL_ICONS) | $(ICON_DIR)
-	( \
-		echo "BuildTime=$(shell date +'%Y-%m-%dT%H:%M:%S')" \
-		echo "VERSION=d8ccfe94471a0236b1d4a3f0f90862c4fe5486ce" \
-		echo "SOURCE=$(subst .git,,$(OCI_ICON_REPO))" \
-	) > $(ICON_DIR)/INFO
+
+build: $(ICON_DIR)/INFO $(FINAL_ICONS)
 
 
 clean:
