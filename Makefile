@@ -79,7 +79,7 @@ icons.puml: $(FINAL_ICONS)
 	echo "title Icon List" >> $@
 	echo "!define ICON_URL https://raw.githubusercontent.com/ThatGerber/plantuml-oci-icons/main/icons" >> $@
 	for i in $(subst $(ICON_DIR)/,,$(wildcard $(ICON_DIR)/*.puml)); do \
-		echo "!include ICON_URL/$$i.puml" >> $@; \
+		echo "!include ICON_URL/$$i" >> $@; \
 	done
 	echo "listsprites" >> $@
 	echo "@enduml" >> $@
