@@ -1,11 +1,6 @@
-sprite $oci_configservice [256x256/16z] {
-xDo7KGHH30JH0FvEJVxPKbvuX8VhLWQlIslFzDl6IGA5FnciVOQgdw7gPm1wQe5i1yvFuFo4gf-1ynCuFm7m6G4Et9-F3foVmFc9Vl3vB_4SME-2V0v0DsZH
-2NmTH7yXI7ybx6S2Y846qAzVl_xSdZy9rpyai7zFoAtwPx3-6Qv_XkFlNXICNx_-wb_pzRSt5K1_zJFuBTkllso-_kf_4nHKW2L_1k071E3w-mOcg00B_kq6
-q7ynVnFu2YI806SSq6_1WVqZFUGVnJw7E045wCVNtry5wm-0pmgWVou2o03xDJ200VGRm00N880BO003qFpU1nl0Yw0BO003U0fm0GnW0E-3NG03642_0Gp0
-yHiW1Z20zy4kW04CeDy01W3w3H03603jlrm00nZ0Ku0BO02etm0nW06y2Be01Z00rUyfm03U1xi01Z205q4Nm006y1JW0dWRE5XeWA52_ID5-FkolmX_T_wB
-w6SimDAF2n36_hVTNVzOfy20_CsRKtQ05Xr0Fpj00GFdzx3vBPpVBlYu0An_tQVoF_3CUzVUdHj1409030m0ffH_jkUkTHurW506lVyBT_A_CbhyD-F4u-UR
-Zf-_YVZhQ_Bx-aJEpsRyP6z_rlfJzFVvAIJWb_mdw1CvFtlmKqlE3_rZNvh9-MdpKqxEJvK_Kw_9J_hr-3Dd-BF6dpqgyKSsgSFFDZNu8wVunmf-5bMVMhgy
-ye_WPrrbVihybFbbVIBdfyglwnCvFqr-NvyK-PVvSu6_m2_xk_o-lyll-qlyk_pplWSU_MN-_78-SZvoFd8-SZvk_lFB-SZvoFd8-SZvkFdFB-SZvoFd8-SZ
-v-FcFx-SZvoFd8-SZvoFc__ySZvoFZVn-tvwzVs0s0zY_mIn7n3xGUm7n7uG-oU8_O3NFq7i1yH-4Fi7j_K3
-}
-
+!define OCI_CONFIGSERVICE(_color)                                 SPRITE_PUT(          OCI_CONFIGSERVICE          oci_configservice, _color)
+!define OCI_CONFIGSERVICE(_color, _scale)                         SPRITE_PUT(          OCI_CONFIGSERVICE          oci_configservice, _color, _scale)
+!define OCI_CONFIGSERVICE(_color, _scale, _alias)                 SPRITE_ENT(  _alias, OCI_CONFIGSERVICE,         oci_configservice, _color, _scale)
+!define OCI_CONFIGSERVICE(_color, _scale, _alias, _shape)         SPRITE_ENT(  _alias, OCI_CONFIGSERVICE,         oci_configservice, _color, _scale, _shape)
+!define OCI_CONFIGSERVICE(_color, _scale, _alias, _shape, _label) SPRITE_ENT_L(_alias, OCI_CONFIGSERVICE, _label, oci_configservice, _color, _scale, _shape)
+skinparam folderBackgroundColor<<OCI_CONFIGSERVICE>> White

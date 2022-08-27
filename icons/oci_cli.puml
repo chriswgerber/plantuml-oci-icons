@@ -1,8 +1,6 @@
-sprite $oci_cli [256x256/16z] {
-xTk5iHj168J10AIjF_ze3MDctvhsFDq53uJVCQwZ0G000000000000000000000003Fb_QzLzqTtVrJtHtT_LFT7TtzqzqTrVtJtHtL_TFT7TNzqzqTrVtJt
-HtL_TFT7TNzqzqTrVtJtXq6m30A3mBAmVNNOlaNKlL5ilsZ_LDkyTkm9sT_RFn_Rw3zt46ozqqR_gODWxrtkqH-_tl_HKvzlVxbDV_oM_hNYiJ7_dpm8hkN7
-_VhZb_hNxVkdkNzYgtzktpzHsZzHsZzHsZ-Vwbh-pMUgrlzpmUMBR4_V_fjhrhK1y3nx_sykstlJh_txd_S_PyFMK5tdzJzcozvrngVrFsVFreorug3-sRCr
-WQqug7_sF9psQ-ntsjVrNxNzplFzRxhhNV_TNU_-Z-vwztzrrxl_ixW-YkEZk3wAuwEuFehZexW-4b_iv-i10000cDzD_m7qwzUlNxz-_VhrwzUlNpy00000
-00000000000000000C1B
-}
-
+!define OCI_CLI(_color)                                 SPRITE_PUT(          OCI_CLI          oci_cli, _color)
+!define OCI_CLI(_color, _scale)                         SPRITE_PUT(          OCI_CLI          oci_cli, _color, _scale)
+!define OCI_CLI(_color, _scale, _alias)                 SPRITE_ENT(  _alias, OCI_CLI,         oci_cli, _color, _scale)
+!define OCI_CLI(_color, _scale, _alias, _shape)         SPRITE_ENT(  _alias, OCI_CLI,         oci_cli, _color, _scale, _shape)
+!define OCI_CLI(_color, _scale, _alias, _shape, _label) SPRITE_ENT_L(_alias, OCI_CLI, _label, oci_cli, _color, _scale, _shape)
+skinparam folderBackgroundColor<<OCI_CLI>> White

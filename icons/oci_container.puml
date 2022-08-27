@@ -1,11 +1,6 @@
-sprite $oci_container [256x256/16z] {
-xTtNaUOm30JX04WKye_sl9kgMyUbG4ZJt-lQXlXxcRmU000000000000000000000000W8Wm3V_BCLmPXYkFSBC9p10-0uWbZk7AC5mvXYl3S6KOhXp3LVOo
-ebhsCEEKcKV5UORXoZ5S6OOhnt1b6AuCmrNVX_7-4uXdS0nNXk7AC5nDmt1bsAwS-va00nYkzt_vEiDmvTYj3CELORXox5PsuRoXntkvl8lFvpVAC5p5AQCs
-iyy4ibRyZZmzW9cbfimx3WuW2scDzaU-w97XeVs5I-1Wzylz1KiWcuI_t1_paW7qtb5SutOEO6If48lzaI-wmKfVxz-p1ExJhVtlhUY-mTVx5vT0wvrdr_jV
-xff7dgw6AEYl2wmFLo_-bLxTzVtH8BoyN_KAh--Fmkus_QeWl7L_5Bm-QTqVzz_WMlAU9m3g8U6vsXy5tUtwLK5uw_vOw3RgRv9uOVzi7PvvTNyqVH3FC_rn
-rtxwys3_UgDbV_xbrv_YaVtqqxypRTweVromQKTPVzEbNTO_hVlfp_TrslRd3mRz5Mdqqv_qqqy__Tk_QMS__K4__SVIwZu0f5_HJp_zzDClw3-JfkWNhVlf
-fvz--kcFLltHff_-zRz7F_tXsX_2eLyrwAT_DMsQzm_p_bpOqyYWNnJsvxFwqxq_qxq_z_IF_Vrb1nhiw9yR-wD4_jNh0w0exq_BVk7Kd_zJt3yQXAjHrDyf
-N5tStp5SFQW_rzo_FpzdH_-jBtUzsd-iF7SBONXrXExzURcc_LccMN-MQzAVvnpjdtdUcVxiOrJsZsoeeZyxkx8_xyWlNFc5AxzmvHUk_CBLGhX7_qZXqvzM
-9DnGSJW00000000000000000000005y1
-}
-
+!define OCI_CONTAINER(_color)                                 SPRITE_PUT(          OCI_CONTAINER          oci_container, _color)
+!define OCI_CONTAINER(_color, _scale)                         SPRITE_PUT(          OCI_CONTAINER          oci_container, _color, _scale)
+!define OCI_CONTAINER(_color, _scale, _alias)                 SPRITE_ENT(  _alias, OCI_CONTAINER,         oci_container, _color, _scale)
+!define OCI_CONTAINER(_color, _scale, _alias, _shape)         SPRITE_ENT(  _alias, OCI_CONTAINER,         oci_container, _color, _scale, _shape)
+!define OCI_CONTAINER(_color, _scale, _alias, _shape, _label) SPRITE_ENT_L(_alias, OCI_CONTAINER, _label, oci_container, _color, _scale, _shape)
+skinparam folderBackgroundColor<<OCI_CONTAINER>> White

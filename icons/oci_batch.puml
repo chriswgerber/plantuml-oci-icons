@@ -1,17 +1,6 @@
-sprite $oci_batch [256x256/16z] {
-vD4B5SDG5CCm0E_gZ3_RSUY_THZ8-Tsz_D3MGrkFjXxQUcZheQs7jXxQUcZheQr7MmzjFRJrqDP3Mmzf_ViBZFrRtUy1RJsqzV0-VRV0e5jWe5l0kMlhqTP3
-MmzjFRJrqDP3MmzjFRJrQEkXhOUs7jfwQEkXhOUs7YkjXxOUsdfeww6jXxOUJj0d2mpX021R0Be5e5i0kWK6tGBBv_OdpovmAmPY80mV8B5y_zjMMFXt9pZJ
-HoCeMB7yXI6vwxEzgCfPMED_ndhosTYoUg_uMV7wgm9wtHl5GtuMpFuglrvtdXJt_CqO_4X0Zo6NeLaVzF_yxjp-Z5_F8QM_vJBZSiRZdp7fjUMQlm4jdvyH
-UgSV9JAKln2Ndu7UwkzB_ixw6UXzxNhAl-bdV2DN9VoiW6lmEu96aUtVJ-mlOoS6I7gVmc_i9SmsVs3coFcVC_QGfxZ-SR2dy1CQzFUGZBzF-9VXgJVbpz__
-QpyfssCb_2rZRRfEYDgVV_xLUiniQgktiFBdtt_KsZkn-UV27N-XWzlV1-BeB6STowfJuFhtWLy-ljexWomxOI067i3Dc_lVDilPqY_KT45B-rYKJC1ZY_U1
-3V0THq0BwDSaiFlyT_Vv_-x-nrbT_xbI_zgJG0gGAS2c09q2V3x_O2MdvtNa-BpizBpgXVHt0xevcaQDwxr9_xO4dgFgZUgcxrFrH_RIzwaU65r3twTwm453
-twS2NCRsjlfK_srKoic_EG3WDKdVn0ByfkbRM83dD7qJYlJrqsC9-Eb_LO2_WBun5dqDF7r_7ia4_7F_hWGEElV4Wz3_sECJyDFpG_df-GJyz7m2VdfeGMHy
-vVtjo7Pw_Xwmq_CE1lg-WFMPzR776zdfUREIq_E6TdhUL40lJU3l7iU2vO3WbMTQ3f3v-nCWdVq97FFSyyi1qDAVG6de-GHuAs42ebL7nrEG0B3cwdW-s0E6
-wQ_6-yF-KkONMwzOb7sn_-VPTvF_KVRT_fzegq6mAIFOQXhOb1DjjlxC501LMysQJVcnin511sLs6chkM4fo1TUe_zx-t-JSI_u7flyde2SIiDFp2TXxltm2
-rhdt9p1wDdBW0Fmze6jz_w_Mz_-kzF_I_xijyrYM1Epql9kTddUqq_CzuFNzl_J_Alq_cDwVGFf_DBq_0PhUdu2vzyid89rxpJrPYlvV-dzy0Z1zf__dQ41Y
-lsdSyGIkSgpx-QkEvnlwV_sXEfvlFdwfk_zKjBEdxl_vZr_xL7kFtuS-oZwU_b_wVv84zXNGW7tDFWkGG87n0_IZ5p4UFNWJYXjmWif3-d_f_ts_Mf3-dvwU
-Jy1EpoVWxlto2Hm07vXxmPAGNEprLUlxV-d_LVf_wV-b_mSaOANddUtqlBk0tf80_vcJlmSC64EgzF_I_vCklzB_CoPWS_4duAVt__o2Fm5-P7y2_Dppqco_
--sy10RrwKUodzn-_-XEWwVq9uFJ-17XwVm8ylJy1Fps_HqRH-vS3BvryGV_FBfhUBvhUBvhUBvhUBvhUBvhUBoEzFu7pyo7Ha-yNJUyNJUyNJUyNJUyNJUyN
-JUyNJUyNJEzNmVX-qVH-5Kplronz5Fq3
-}
-
+!define OCI_BATCH(_color)                                 SPRITE_PUT(          OCI_BATCH          oci_batch, _color)
+!define OCI_BATCH(_color, _scale)                         SPRITE_PUT(          OCI_BATCH          oci_batch, _color, _scale)
+!define OCI_BATCH(_color, _scale, _alias)                 SPRITE_ENT(  _alias, OCI_BATCH,         oci_batch, _color, _scale)
+!define OCI_BATCH(_color, _scale, _alias, _shape)         SPRITE_ENT(  _alias, OCI_BATCH,         oci_batch, _color, _scale, _shape)
+!define OCI_BATCH(_color, _scale, _alias, _shape, _label) SPRITE_ENT_L(_alias, OCI_BATCH, _label, oci_batch, _color, _scale, _shape)
+skinparam folderBackgroundColor<<OCI_BATCH>> White

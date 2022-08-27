@@ -1,22 +1,6 @@
-sprite $oci_cdn [256x256/16z] {
-xTr9Ujim44JX0n3rlVlVDijCi0MXq8D8rowsIVNVX2XmKgYC_WXFYLvbF0q-3pVAfStm-P6R6-3jt03_i1Oe83V0Fw05Yis3zVrReAJqnJ-s0yfEE_rpEt2f
-ABI82lDiVNq7r20FvqkL-kTsu9AUt83tIvlL-lzV_hjWkmuOPSqgdO2t_6gedrlv8nCmctwfFH_cPVxprxj-TUN_WLdni-jNAxt-qqrS_u4jlzI3FmFCVpmV
-6Fj-jUFl-Ddtgu3l-3Nri-zNiNu2s_2pxvSA-AP__F4Btwywlh_z_-j3amOepI_yWymA_jovuPVlLmxVznFaLob_lg6_zB-O2fKtm2hWws4kmTmlVB-A-H8R
-nt-JWy7g1fmhO5wLelmguyyBc1VrxOuHbJNWU07pdYoS_p9IofyFvCcwv-0Zhr_Bhyzuk5yFvqiFvqltueyqlre6kli9zaEAtwWmse_X3-UF87_kTK6lldW_
-TFOJwSzeW5rVWXyw-dVNi6Kfy_DLjD52Hv7ilmA6a2d8ybVD7tcL17_L19grXFf7tRcpzKJvyPAa1oBys1bvX-p7ryQ9PFdRtYDVE_hh_MJuLUYlRy2brdws
-3XFS_lRsBm3EyKMp1YmHpl55hmOi8axffHoM5kT0Auwr-yHHZLzVPULlDuytdHDW2VBbD_PuiUO5Pn7_pBaftlKl_3p1_-uBZNUBcJkFd62kUTHj7jxn7xh0
-KFF4mpndsjpp1e390Z7-fjV_GShmAyMVNaelFWf9jV_7B-dfVgdX3k3Az4lj_1dyUh-w-DNChoI_L3m0klgbf99A-Nnp3hPmGg9YlpBzClZ-y9_xAniWLVkL
-vry-XukiB902_VxnCb3kHtK1EEz_CGRx-0-zF4j-jVERhxy8UkcdsCzX_yjNQU8_LG0j_3Xb9_YZPsPWL7t5yJN-_t60ttnU9z2lrtxg7zVvR3_-nUeO_jol
-A3zyfX-NNzO05ltBNVDho6h07BBdvw0Vylni-aVeFVnv0s3v5ZDZcncGc0QmeAZqno_u_ZscCXfWA48M1HOCLVwaTuxXFza0dDKuVfO500ShVt6ZP-97X-TN
-nESFAlJBzEFpiLUGvvV_89_VmOD-sNv_w_b-4lnM_GLx48ilW120SNUJKyCBlkKde7A_Yxu_PVeoScQG2tp3Jq3TVVqo_757a0b-lm6qycFuzo21Pv0IFl_i
-1X3bDwQ_M_x1aKcud1nwq7dBhqP-oV5hmMyq8FmAYYQ9sV_x3JZB5u1ro7JQJ_BDdQ1D_udUsW_3oWtQyaS-iQZL6FwiY-qARO3o_SQ-nMj0VT1QV3-wGtXu
-0wnvvVKSlvZcblxw1jJx-pS0alsgvSyhoVIhoHwmvDXoVZQadWyZyTxSUlvL-rNjrNmnoPNdLx6VQHBzQiJtIxas5ZTEghVpmtu3NfUOneTClvQ_idBSqwzh
-ZG_Sqoz1mGGP3ZV0M7hLJsV_sIfvjX_cURgVfMLD_sLMNBflzg_kOfTSwEVcVdOcKy0J_BC_kRvUB8mF5Vlcxxz-wBgvVnpxBxXKuBV7Fspu5SM7N3_i-MNm
-Y_oRUi2ekxEVrKH-Ra5M0xRvu1-tr_lNzKP99VurcS67H3wa7F_Vm6-iiqi3c2RdFNLVlovhvfTtVNquVl-OyhBipS_LZPLrMOE-tk-dj01erW0bf9bVnVpw
-1ZpTho8_T6c07kJtxx-113xqlW7tRdu1PEuke5y3jYg_Yr-GUBuI-ZNWolEp57MCN-EFdyNSr3y-s7-YH9Ppv05Ce9MVDr9MvZm__Xo-NtXRFs-crm0WtS-z
-_DpAF-BvSCHFYyqFQGsuaP-x-2dq8p-NowziGFdcnyWD_5ZnYwMMFwXiGBqVCzTd-x5J-0RmrmT-gWT0CHzERJ2o_HpA6J_KyUiR0Db-3iRsvy-deL43iFpr
-V2Zoxww3uwcvmRI4xrTVV311I2vt0FZ-Aurl0WgdqWFg6p3A_8J66W2VnhSCDNx2Snd-6_0N6I6Jo5gzlns2DpzvsIiaTFCFChF39v9FSg8VB-d2tzBuVcF4
-zNqJt8A_3ahoKvct717y2_YK3WJmgSywPvjFJ_swo_GtrY_BWADyUaKRCKO__PB8fsUI-3JEUJw6lYAXV3uYGVoBpybn_k3JSe9_EVZwk7mclxXf3xXpHZs_
-FbNy_dqO5EGdF_a5
-}
-
+!define OCI_CDN(_color)                                 SPRITE_PUT(          OCI_CDN          oci_cdn, _color)
+!define OCI_CDN(_color, _scale)                         SPRITE_PUT(          OCI_CDN          oci_cdn, _color, _scale)
+!define OCI_CDN(_color, _scale, _alias)                 SPRITE_ENT(  _alias, OCI_CDN,         oci_cdn, _color, _scale)
+!define OCI_CDN(_color, _scale, _alias, _shape)         SPRITE_ENT(  _alias, OCI_CDN,         oci_cdn, _color, _scale, _shape)
+!define OCI_CDN(_color, _scale, _alias, _shape, _label) SPRITE_ENT_L(_alias, OCI_CDN, _label, oci_cdn, _color, _scale, _shape)
+skinparam folderBackgroundColor<<OCI_CDN>> White

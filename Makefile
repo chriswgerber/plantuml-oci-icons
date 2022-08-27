@@ -6,6 +6,8 @@ SHELL=/bin/zsh
 BUILD_DIR = out
 ICON_DIR = icons
 
+
+BIN_DIR          := exe
 OCI_ICON_REPO    := https://github.com/opencontainers/artwork.git
 OCI_REPO_DIR     := $(BUILD_DIR)/oci/artwork
 OCI_ICON_SRC_DIR := $(OCI_REPO_DIR)/icons
@@ -13,14 +15,18 @@ ICONS_BUILD_DIR  := $(BUILD_DIR)/$(ICON_DIR)
 
 PUML_ICONS_DIR   := $(BUILD_DIR)/$(ICON_DIR)
 
-DIRS := $(BUILD_DIR) $(ICON_DIR) $(OCI_REPO_DIR) $(ICONS_BUILD_DIR)
+DIRS := $(BUILD_DIR) $(BIN_DIR) $(ICON_DIR) $(OCI_REPO_DIR) $(ICONS_BUILD_DIR)
 
-ENCODING_JAR = lib/plantuml/plantuml.jar
-ICON_GRAY_LEVEL = 16
+PLANTUML_JAR =
+ICON_GRAY_LEVEL = 4
 ICON_COMPRESS = z
-PNG_ICON_HEIGHT = 256
+PNG_ICON_HEIGHT = 64
+
+export PLANTUML_JAR
 
 $(DIRS) : ; mkdir -p $@
+
+CREATE_SPRITE = $(BIN_DIR)/create_sprite.sh
 
 
 # Need this directory
@@ -51,10 +57,11 @@ $(OCI_ICON_SRC_DIR)/%.svg: | $(OCI_ICON_SRC_DIR)
 	cp $(subst oci_,oci_icon_,$@) $@
 
 $(ICONS_BUILD_DIR)/%.png: $(OCI_ICON_SRC_DIR)/%.svg | $(ICONS_BUILD_DIR)
-	rsvg-convert -h $(PNG_ICON_HEIGHT) $< > $@
+	rsvg-convert -a -b white -h $(PNG_ICON_HEIGHT) $< > $@
 
 $(ICONS_BUILD_DIR)/%.puml: $(ICONS_BUILD_DIR)/%.png | $(ICONS_BUILD_DIR)
-	java -jar $(ENCODING_JAR) -encodesprite $(ICON_GRAY_LEVEL)$(ICON_COMPRESS) $< > $@
+	$(CREATE_SPRITE) $<
+
 
 $(ICON_DIR)/%.puml: $(ICONS_BUILD_DIR)/%.puml | $(ICON_DIR)
 	cp $< $@
@@ -62,15 +69,26 @@ $(ICON_DIR)/%.puml: $(ICONS_BUILD_DIR)/%.puml | $(ICON_DIR)
 
 .PHONY: build clean
 
-$(ICON_DIR)/INFO: | $(ICON_DIR)
+$(ICON_DIR)/INFO: FORCE | $(ICON_DIR)
 	echo "BuildTime=$(shell date +'%Y-%m-%dT%H:%M:%S')" > $@
 	echo "VERSION=d8ccfe94471a0236b1d4a3f0f90862c4fe5486ce" >> $@
 	echo "SOURCE=$(subst .git,,$(OCI_ICON_REPO))" >> $@
 
+icons.puml: $(FINAL_ICONS)
+	echo "@startuml test" > $@
+	echo "title Icon List" >> $@
+	echo "!define ICON_URL https://raw.githubusercontent.com/ThatGerber/plantuml-oci-icons/main/icons" >> $@
+	for i in $(subst $(ICON_DIR)/,,$(wildcard $(ICON_DIR)/*.puml)); do \
+		echo "!include ICON_URL/$$i.puml" >> $@; \
+	done
+	echo "listsprites" >> $@
+	echo "@enduml" >> $@
 
-build: $(ICON_DIR)/INFO $(FINAL_ICONS)
 
-
+build: $(ICON_DIR)/INFO $(FINAL_ICONS) icons.puml
 clean:
 	rm -rf \
-		$(BUILD_DIR)
+		$(BUILD_DIR) \
+		icons.puml
+
+FORCE: ;
